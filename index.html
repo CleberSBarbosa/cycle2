@@ -1,0 +1,160 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="build/jquery.cycle2.js"></script>
+<script src="build/jquery.cycle2.js.map"></script>
+<script src="build/jquery.cycle2.min.js"></script>
+<script src="build/jquery.cycle2.scrollVert.js"></script>
+...
+
+<div class="cycle-slideshow"
+    data-cycle-fx="scrollVert"
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+
+
+
+
+
+Cycle2's carousel transition plugin must be included in order to use the carousel effect. See the Download page for a link to the carousel plugin.
+
+Simple
+Carousels can be horizontal or vertical, automatic or manual, circular or non-circular, and fluid or fixed-width. There are several options with which you can customize a carousel slideshow. By default, a carousel slideshow is circular which means that slides can wrap, effectively creating an endless carousel (as seen below). Also by default, a carousel will display as many slides as can fit in the slideshow container.
+
+<div class="slideshow" 
+    data-cycle-fx=carousel
+    data-cycle-timeout=1000
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+        
+Visible Slides
+Use the data-cycle-carousel-visible attribute to limit the number of visible slides. When this option is used, the width of the carousel becomes fixed.
+
+<div class="slideshow" 
+    data-cycle-fx=carousel
+    data-cycle-timeout=1000
+    data-cycle-carousel-visible=5
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+        
+Responsive
+When you use the data-cycle-carousel-visible attribute, you may also use the data-cycle-carousel-fluid attribute in order to achieve a responsive carousel slider, instead of a fixed-width carousel. When the value of data-cycle-carousel-fluid is set to true your carousel slides will be fluid-width within the container. So if your container is fluid-width the slides will be resized with the container so that the value of data-cycle-carousel-visible is honored.
+
+<div class="slideshow" 
+    data-cycle-fx=carousel
+    data-cycle-timeout=1000
+    data-cycle-carousel-visible=5
+    data-cycle-carousel-fluid=true
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+It's important that your slides do not have a declared width or height for this to work properly. The slideshow below has the following style rule applied:
+div.responsive img { width: auto; height: auto }
+
+        
+Controls
+As with any Cycle2 slideshow, prev/next and pager controls can be used to advance the current slide.
+
+<div class="slideshow" 
+    data-cycle-fx=carousel
+    data-cycle-timeout=0
+    data-cycle-carousel-visible=5
+    data-cycle-next="#next"
+    data-cycle-prev="#prev"
+    data-cycle-pager="#pager"
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+
+<div class=center>
+    <a href=# id=prev>&lt;&lt; Prev </a>
+    <a href=# id=next> Next &gt;&gt; </a>
+</div>
+
+<div class="cycle-pager" id=pager></div>
+        
+<< Prev Next >>
+Vertical
+For a vertical carousel, set the data-cycle-carousel-vertical attribute to true.
+
+<div class="slideshow vertical" 
+    data-cycle-fx=carousel
+    data-cycle-timeout=0
+    data-cycle-next="#next3"
+    data-cycle-prev="#prev3"
+    data-cycle-pager="#pager3"
+    data-cycle-carousel-visible=2
+    data-cycle-carousel-vertical=true
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+
+<div class=center>
+    <a href=# id=prev3><< Prev </a>
+    <a href=# id=next3> Next >> </a>
+</div>
+
+<div class="cycle-pager" id=pager3></div>
+        
+<< Prev Next >>
+Non-Circular
+Carousels can be non-circular by setting the data-allow-wrap attribute to false. A non-circular slideshow will not advance past the last slide.
+
+<div class="slideshow" 
+    data-cycle-fx=carousel
+    data-cycle-timeout=0
+    data-cycle-next="#next4"
+    data-cycle-prev="#prev4"
+    data-cycle-pager="#pager4"
+    data-cycle-carousel-visible=5
+    data-allow-wrap=false
+    >
+    <img src="images/image01.jpg">
+    <img src="images/image02.jpg">
+    <img src="images/image03.jpg">
+    <img src="images/image04.jpg">
+    <img src="images/image05.jpg">
+</div>
+
+<div class=center>
+    <a href=# id=prev4><< Prev </a>
+    <a href=# id=next4> Next >> </a>
+</div>
+
+<div class="cycle-pager" id=pager4></div>
+        
+<< Prev Next >>
+Carousel Options
+Options are set on the slideshow element using data-cycle-option-name attributes. Option attribute names are always lowercase and prefixed with data-cycle-. For example, to set the carousel-visible option you would use the data-cycle-carousel-visible attribute.
+Name	Default Value	Description
+carousel-fluid	false	If this value is true and data-cycle-carousel-visible is set, then the slides within the carousel will be resized in order to fill the container with the number of slides specified by the data-cycle-carousel-visible attribute.
+carousel-offset	0	The number of pixels to offset the carousel.
+carousel-slide-dimension	undefined	The width (horz carousel) or height (vert carousel) of each slide. If this option is not set the value will be inferred from the first slide's dimensions.
+carousel-vertical	false	true for a vertical carousel.
+carousel-visible	undefined	Number of slides to be displayed in the carousel. Setting this option will cause the carousel to have a fixed width unless data-cycle-carousel-fluid is set to true.
+throttle-speed	undefined	true if the speed should be throttled to achieve a consistent scroll rate. This is useful only if you wish each slide to be scrolled at the exact same rate and your slides have different widths.
